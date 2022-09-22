@@ -1,0 +1,301 @@
+<!-- Para cargar archivos estáticos -->
+{% load static %} 
+<!DOCTYPE html>
+<html lang="zxx">
+
+<!-- Encabezado de la Página -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Anime Template">
+    <meta name="keywords" content="Anime, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Título de la Página -->
+    <title>MANGA COMMUNITY Plus by SHUEISHA</title>
+
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Estilos Css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/plyr.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+<!-- Fin de Encabezado -->
+
+<!-- Inicio del Cuerpo de la Página -->
+<body>
+    <!-- Precargador de páginas -->
+    <div id="preloder">
+        <!-- Cargador de páginas -->
+        <div class="loader"></div>
+    </div>
+
+    <!-- Inicio de la sección de Encabezado -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <!-- Url que redirige al index al tocar el logo de la página -->
+                        <a href="{% url 'main:home' %}">
+                            <img src="{% static 'img/logoM.png' %}" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <!-- Urls que redirigen al usuario a cada uno de sus apartados -->
+                                <li class="active"><a href="{% url 'main:home' %}">Inicio</a></li>
+                                <li><a href="{% url 'main:reviews' %}">Reviews</a></li>
+                                </li>
+                                <li><a href="{% url 'main:blogs' %}">Blogs</a></li>
+                                <li><a href="https://mangaplus.shueisha.co.jp/updates">Ver Mangas</a></li>
+                                <li><a href="{% url 'main:blogaddinfo' %}">MICreador</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="header__right">
+                        <a href="{% url 'main:logout' %}"><img src="{% static 'img/icon_logout (1).png' %}" alt="">
+                        <a href="{% url 'main:login' %}"><span class="icon_profile"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <!-- Fin del encabezado -->
+
+    <!-- Inicio de los Apartados de Inicio, Reviews con sus respectivos url y la Categoría que son las reviews (Shonen) -->
+    <div class="breadcrumb-option">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12">
+                    <div class="breadcrumb__links">
+                        <a href="{% url 'main:home' %}"><i class="fa fa-home"></i> Inicio</a>
+                        <a href="{% url 'main:reviews' %}">Reviews</a>
+                        <span>Shōnen</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Inicio de los Apartados de Inicio, Reviews con sus respectivos url y la Categoría que son las reviews (Shonen) -->
+
+    <!-- Inicio de la sección de la Review Elegida, con su título, su contenido y de decoración algunos comentarios -->
+    <section class="anime-details spad">
+        <div class="container">
+            <div class="anime__details__content">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="anime__details__pic set-bg" data-setbg="{% static 'img/reviewbanner.jpg' %}">
+                            <div class="comment"><i class="fa fa-comments"></i> 6</div>
+                            <div class="view"><i class="fa fa-eye"></i> 8901</div>
+                        </div>
+                    </div>
+                    <div class="col-lg-9">
+                        <div class="anime__details__text">
+                            <div class="anime__details__title" style= "text-align: justify;text-justify: inter-word;">
+                                <!-- Envía el Título y el cuerpo de las Reviews a sus respectivos apartados" -->
+                                <h3>{{object.name|title}}</h3>
+                                <span>集英社</span>
+                                <p>{{object.body|safe}}<br></p>
+                                
+                            </div>
+                            <div class="anime__details__rating">
+                                <div class="rating">
+                                    <a href="#"><i class="fa fa-star"></i></a>
+                                    <a href="#"><i class="fa fa-star"></i></a>
+                                    <a href="#"><i class="fa fa-star"></i></a>
+                                    <a href="#"><i class="fa fa-star"></i></a>
+                                    <a href="#"><i class="fa fa-star-half-o"></i></a>
+                                </div>
+                                <span>1.100 Votos</span>
+                            </div>
+                            <p></p>
+                            <div class="anime__details__widget">
+                                <div class="row">
+                                    <div class="col-lg-6 col-md-6">
+                                        <ul>
+                                            <li><span>Tipo:</span> Shōnen</li>
+                                            <li><span>Editorial:</span> SHUEISHA</li>
+                                            <li><span>Género:</span> Acción​</li>
+                                            <li><span>Opinión:</span> Muy Positiva (1000 me gusta)</li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-lg-6 col-md-6">
+                                        <ul>
+                                            <li><span>Puntuaciones:</span> 7.31 / 1,515</li>
+                                            <li><span>Valoración:</span> 8.5 / 161 veces</li>
+                                            <li><span>Idioma:</span> Español</li>
+                                            <li><span>Vistas:</span> 131,541</li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="anime__details__btn">
+                                <a href="#" class="follow-btn"><i class="fa fa-heart-o"></i> Seguir</a>
+                                <a href="https://mangaplus.shueisha.co.jp/updates" class="watch-btn"><span>Ver este Manga</span> <i
+                                    class="fa fa-angle-right"></i></a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-lg-8 col-md-8">
+                        <div class="anime__details__review">
+                            <div class="section-title">
+                                <!-- Comentarios Bots -->
+                                <h5>Comentarios</h5>
+                            </div>
+                            <div class="anime__review__item">
+                                <div class="anime__review__item__pic">
+                                    <img src="{% static 'img/anime/review-1.jpg' %}" alt="">
+                                </div>
+                                <div class="anime__review__item__text">
+                                    <h6>José_Choqui33 - <span>Hace 1 hora</span></h6>
+                                    <p>Solo diré Una Cosa de Esta Review del Manga: NASHE🥵</p>
+                                </div>
+                            </div>
+                            <div class="anime__review__item">
+                                <div class="anime__review__item__pic">
+                                    <img src="{% static 'img/anime/review-2.jpg' %}" alt="">
+                                </div>
+                                <div class="anime__review__item__text">
+                                    <h6>ReginaUWU♡ - <span>Hace 5 horas</span></h6>
+                                    <p>La empecé a leer porqué vi el anime en animeflv.net y ahora quiero leer el manga y esta Review me dice DEBO VERLO😎👌.</p>
+                                </div>
+                            </div>
+                            <div class="anime__review__item">
+                                <div class="anime__review__item__pic">
+                                    <img src="{% static 'img/anime/review-3.jpg' %}" alt="">
+                                </div>
+                                <div class="anime__review__item__text">
+                                    <h6>AliChan18 - <span>Hace 20 horas</span></h6>
+                                    <p>a mí me gusta el anime y el manga pero soy más del manga y ya me vi toda la serie pero el manga es GOD</p>
+                                </div>
+                            </div>
+                            <div class="anime__review__item">
+                                <div class="anime__review__item__pic">
+                                    <img src="{% static 'img/anime/review-4.jpg' %}" alt="">
+                                </div>
+                                <div class="anime__review__item__text">
+                                    <h6>kiwi-chan👾 - <span>Hace 2 horas</span></h6>
+                                    <p>¡Buena Review Bro :D!</p>
+                                </div>
+                            </div>
+                            <div class="anime__review__item">
+                                <div class="anime__review__item__pic">
+                                    <img src="{% static 'img/anime/review-5.jpg' %}" alt="">
+                                </div>
+                                <div class="anime__review__item__text">
+                                    <h6>LORDE KORRA - <span>Hace 5 horas</span></h6>
+                                    <p>Tremendo lo que se viene para el siguiente capítulo</p>
+                                </div>
+                            </div>
+                            <div class="anime__review__item">
+                                <div class="anime__review__item__pic">
+                                    <img src="{% static 'img/anime/review-6.jpg' %}" alt="">
+                                </div>
+                                <div class="anime__review__item__text">
+                                    <h6>AresCat - <span>Hace 1 día</span></h6>
+                                    <p>Hermanooo, te rifaste con esa review 100/100</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="anime__details__form">
+                            <div class="section-title">
+                                <h5>Tu Comentario</h5>
+                            </div>
+                            <form action="#">
+                                <textarea placeholder="Agregar Comentario"></textarea>
+                                <button type="submit"><i class="fa fa-location-arrow"></i> Envíar</button>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-md-4">
+                        <div class="anime__details__sidebar">
+                            <div class="section-title">
+                                <h5>Redes Sociales</h5>
+                            </div>
+                            </div>
+                            <div class="blog__details__social">
+                                <a href="https://www.facebook.com/mangaplus.es/" class="facebook"><i class="fa fa-facebook-square"></i> Facebook</a>
+                            <p></p>
+                                <a href="https://discord.com/invite/yhneaVX" class="discord"><i class="fa fa-discord-square"></i> Discord</a>
+                            <p></p>
+                                <a href="https://mangaplus.shueisha.co.jp/updates" class="Shueisha"><i class="fa fa-Shueisha-square"></i> Shueisha</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Fin de la sección de la Review Elegida, con su título, su contenido y de decoración algunos comentarios -->
+
+        <!-- Inicio de la sección de Pie de Página con todos sus urls que redigiren al usuario a los diferentes apartados-->
+        <footer class="footer">
+            <div class="page-up">
+                <a href="#" id="scrollToTopButton"><span class="arrow_carrot-up"></span></a>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="footer__logo">
+                            <a href="{% url 'main:home' %}"><img src="{% static 'img/logoM.png' %}" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="footer__nav">
+                            <ul>
+                                <li class="active"><a href="{% url 'main:home' %}">Inicio</a></li>
+                                <li><a href="{% url 'main:reviews' %}">Reviews</a></li>
+                                <li><a href="{% url 'main:blogs' %}">Blog</a></li>
+                                <li><a href="https://mangaplus.shueisha.co.jp/updates">Ver Mangas</a></li>
+                                <li style="color: #b7b7b7; font-size: 15px; font-weight: 700;"> MICreador <span class="arrow_carrot-down"></span>
+                                    <ul class="dropdown">
+                                        <li><a href="{% url 'main:blogaddinfo' %}">Crear Blogs</a></li>
+                                        <li><a href="{% url 'main:reviewaddinfo' %}">Crear Reviews</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3" style="text-align: justify;text-justify: inter-word;">
+                        <p><!-- Referencia de Derechos de Autor como Decorativo -->
+                          Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los Derechos Reservados | Esta página web fue creada con fines educativos con mucho <i class="fa fa-heart" aria-hidden="true"></i> por <a href="https://www.twitch.tv/soyyairr" target="_blank">Yair Sánchez</a>
+                          <!--  Referencia de Derechos de Autor como Decorativo --></p>
+    
+                      </div>
+                  </div>
+              </div>
+          </footer>
+          <!-- Fin de la sección de Pie de Página con todos sus urls que redigiren al usuario a los diferentes apartados-->
+
+        <!-- JavaScript Plugins -->
+        <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/player.js' %}"></script>
+        <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+        <script src="{% static 'js/mixitup.min.js' %}"></script>
+        <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+
+
+    </body>
+    <!-- Fin del Cuerpo de la Página -->
+    
+    </html>

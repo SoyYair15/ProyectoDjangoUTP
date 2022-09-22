@@ -1,0 +1,244 @@
+<!-- Para cargar archivos estáticos -->
+{% load static %} 
+<!DOCTYPE html>
+<html lang="zxx">
+
+<!-- Encabezado de la Página -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Anime Template">
+    <meta name="keywords" content="Anime, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Título de la Página -->
+    <title>MANGA COMMUNITY Plus by SHUEISHA</title>
+
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Estilos Css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/plyr.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+<!-- Fin de Encabezado -->
+
+<!-- Inicio del Cuerpo de la Página -->
+<body>
+    <!-- Precargador de páginas -->
+    <div id="preloder">
+        <!-- Cargador de páginas -->
+        <div class="loader"></div>
+    </div>
+
+    <!-- Inicio de la sección de Encabezado -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <!-- Url que redirige al index al tocar el logo de la página -->
+                        <a href="{% url 'main:home' %}">
+                            <img src="{% static 'img/logoM.png' %}" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <!-- Urls que redirigen al usuario a cada uno de sus apartados -->
+                                <li class="active"><a href="{% url 'main:home' %}">Inicio</a></li>
+                                <li><a href="{% url 'main:reviews' %}">Reviews</a></li>
+                                </li>
+                                <li><a href="{% url 'main:blogs' %}">Blogs</a></li>
+                                <li><a href="https://mangaplus.shueisha.co.jp/updates">Ver Mangas</a></li>
+                                <li style="color: #b7b7b7; font-size: 15px; font-weight: 700;"> MICreador <span class="arrow_carrot-down"></span>
+                                    <ul class="dropdown">
+                                        <li><a href="{% url 'main:blogaddinfo' %}">Crear Blogs</a></li>
+                                        <li><a href="{% url 'main:reviewaddinfo' %}">Crear Reviews</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="header__right">
+                        <a href="{% url 'main:logout' %}"><img src="{% static 'img/icon_logout (1).png' %}" alt="">
+                        <a href="{% url 'main:login' %}"><span class="icon_profile"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <!-- Fin de la sección de Encabezado -->
+
+    <!-- Inicio de la sección de cada uno de los Blogs Creados por admin y decorado con unos comentarios -->
+    <section class="blog-details spad">
+        <div class="container">
+            <div class="row d-flex justify-content-center">
+                <div class="col-lg-8">
+                    <div class="blog__details__title">
+                        <h6>Acción, Magía <span>- 30 de Mayo del 2022</span></h6>
+                        <h2>{{object.name|title}}</h2>
+                        <div class="blog__details__social">
+                            <a href="https://www.facebook.com/mangaplus.es/" class="facebook"><i class="fa fa-facebook-square"></i> Facebook</a>
+                            <a href="https://discord.com/invite/yhneaVX" class="discord"><i class="fa fa-discord-square"></i> Discord</a>
+                            <a href="https://mangaplus.shueisha.co.jp/updates" class="Shueisha"><i class="fa fa-Shueisha-square"></i> Shueisha</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-12">
+                    <div class="blog__details__pic">
+                        <img src="img/blog/details/blog-details-pic.jpg" alt="">
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="blog__details__content">
+                        <div class="blog__details__text">
+                            <p>{{object.body|safe}}<br></p>
+                        </div>
+                        <br>
+                        <div class="blog__details__tags">
+                            <a href="">MANGA</a>
+                            <a href="">SHŌNEN</a>
+                        </div>
+                        <div class="blog__details__btns">
+                            <div class="row">
+                                <div class="col-lg-6">
+                                    <div class="blog__details__btns__item">
+                                        <h5><a href="{% url 'main:reviews' %}"><span class="arrow_left"></span> Reviews...</a>
+                                        </h5>
+                                    </div>
+                                </div>
+                                <div class="col-lg-6">
+                                    <div class="blog__details__btns__item next__btn">
+                                        <h5><a href="https://mangaplus.shueisha.co.jp/updates"> Ver Mangas...<span
+                                            class="arrow_right"></span></a></h5>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog__details__comment">
+                                <h4>Comentarios</h4>
+                                <div class="blog__details__comment__item">
+                                    <div class="blog__details__comment__item__pic">
+                                        <img src="{% static 'img/blog/details/comment-12.png' %}" alt="">
+                                    </div>
+                                    <div class="blog__details__comment__item__text">
+                                        <span>09 de Septiembre del 2022</span>
+                                        <h5>démon_uchiwa</h5>
+                                        <p>Buenardo el BLOG de la semana uwu</p>
+                                        <a href="#">Me gusta</a>
+                                        <a href="#">Responder</a>
+                                    </div>
+                                </div>
+                                <div class="blog__details__comment__item blog__details__comment__item--reply">
+                                    <div class="blog__details__comment__item__pic">
+                                        <img src="{% static 'img/blog/details/comment-13.png' %}" alt="">
+                                    </div>
+                                    <div class="blog__details__comment__item__text">
+                                        <span>08 de Septiembre del 2022</span>
+                                        <h5>guepardex2436G</h5>
+                                        <p>Épico las noticias pa la people</p>
+                                        <a href="#">Me gusta</a>
+                                        <a href="#">Responder</a>
+                                    </div>
+                                </div>
+                                <div class="blog__details__comment__item">
+                                    <div class="blog__details__comment__item__pic">
+                                        <img src="{% static 'img/blog/details/comment-15.png' %}" alt="">
+                                    </div>
+                                    <div class="blog__details__comment__item__text">
+                                        <span>07 de Septiembre del 2022</span>
+                                        <h5>TuChocolaTitoChan</h5>
+                                        <p>Me encantó el BLOG 100/100, recomiendo mucho la verdad ver
+                                            el manga!!!
+                                        </p>
+                                        <a href="">Me gusta</a>
+                                        <a href="">Responder</a>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="blog__details__form">
+                                <h4>Dejar tu Comentario</h4>
+                                <form action="#">
+                                    <div class="row">
+                                        <div class="col-lg-6 col-md-6 col-sm-6">
+                                            <input type="text" placeholder="Nombre de Usuario">
+                                        </div>
+                                        <div class="col-lg-6 col-md-6 col-sm-6">
+                                            <input type="text" placeholder="Email">
+                                        </div>
+                                        <div class="col-lg-12">
+                                            <textarea placeholder="Mensaje"></textarea>
+                                            <button type="submit" class="site-btn">Enviar Comentario</button>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Fin de la sección de cada uno de los Blogs Creados por admin y decorado con unos comentarios -->
+
+
+        <!-- Inicio de la sección de Pie de Página con todos sus urls que redigiren al usuario a los diferentes apartados-->
+        <footer class="footer">
+            <div class="page-up">
+                <a href="#" id="scrollToTopButton"><span class="arrow_carrot-up"></span></a>
+            </div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-3">
+                        <div class="footer__logo">
+                            <a href="{% url 'main:home' %}"><img src="{% static 'img/logoM.png' %}" alt=""></a>
+                        </div>
+                    </div>
+                    <div class="col-lg-6">
+                        <div class="footer__nav">
+                            <ul>
+                                <li class="active"><a href="{% url 'main:home' %}">Inicio</a></li>
+                                <li><a href="{% url 'main:reviews' %}">Reviews</a></li>
+                                <li><a href="{% url 'main:blogs' %}">Blog</a></li>
+                                <li><a href="https://mangaplus.shueisha.co.jp/updates">Ver Mangas</a></li>
+                                <li><a href="{% url 'main:blogaddinfo' %}">MICreador</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="col-lg-3" style="text-align: justify;text-justify: inter-word;">
+                        <p><!-- Referencia de Derechos de Autor como Decorativo -->
+                          Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los Derechos Reservados | Esta página web fue creada con fines educativos con mucho <i class="fa fa-heart" aria-hidden="true"></i> por <a href="https://www.twitch.tv/soyyairr" target="_blank">Yair Sánchez</a>
+                          <!--  Referencia de Derechos de Autor como Decorativo --></p>
+    
+                      </div>
+                  </div>
+              </div>
+          </footer>
+          <!-- Fin de la sección de Pie de Página con todos sus urls que redigiren al usuario a los diferentes apartados-->
+
+        <!-- JavaScript Plugins -->
+        <script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+        <script src="{% static 'js/bootstrap.min.js' %}"></script>
+        <script src="{% static 'js/player.js' %}"></script>
+        <script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+        <script src="{% static 'js/mixitup.min.js' %}"></script>
+        <script src="{% static 'js/jquery.slicknav.js' %}"></script>
+        <script src="{% static 'js/owl.carousel.min.js' %}"></script>
+        <script src="{% static 'js/main.js' %}"></script>
+
+
+    </body>
+    <!-- Fin del Cuerpo de la Página -->
+    </html>

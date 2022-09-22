@@ -1,0 +1,473 @@
+<!-- Para cargar archivos estáticos -->
+{% load static %} 
+<!DOCTYPE html>
+<html lang="zxx">
+
+<!-- Encabezado de la Página -->
+<head>
+    <meta charset="UTF-8">
+    <meta name="description" content="Anime Template">
+    <meta name="keywords" content="Anime, unica, creative, html">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Título de la Página -->
+    <title>MANGA COMMUNITY Plus by SHUEISHA</title>
+
+    <!-- Fuentes de Google -->
+    <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Mulish:wght@300;400;500;600;700;800;900&display=swap"
+    rel="stylesheet">
+
+    <!-- Estilos Css -->
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/font-awesome.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/elegant-icons.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/plyr.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/nice-select.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/owl.carousel.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/slicknav.min.css' %}" type="text/css">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}" type="text/css">
+</head>
+<!-- Fin de Encabezado -->
+
+<!-- Inicio del Cuerpo de la Página -->
+<body>
+    <!-- Precargador de páginas -->
+    <div id="preloder">
+        <!-- Cargador de páginas -->
+        <div class="loader"></div>
+    </div>
+
+    <!-- Inicio de la sección de Encabezado -->
+    <header class="header">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-2">
+                    <div class="header__logo">
+                        <!-- Url que redirige al index al tocar el logo de la página -->
+                        <a href="{% url 'main:home' %}">
+                            <img src="{% static 'img/logoM.png' %}" alt="">
+                        </a>
+                    </div>
+                </div>
+                <div class="col-lg-8">
+                    <div class="header__nav">
+                        <nav class="header__menu mobile-menu">
+                            <ul>
+                                <!-- Urls que redirigen al usuario a cada uno de sus apartados -->
+                                <li class="active"><a href="{% url 'main:home' %}">Inicio</a></li>
+                                <li><a href="{% url 'main:reviews' %}">Reviews</a></li>
+                                </li>
+                                <li><a href="{% url 'main:blogs' %}">Blogs</a></li>
+                                <li><a href="https://mangaplus.shueisha.co.jp/updates">Ver Mangas</a></li>
+                                <li style="color: #b7b7b7; font-size: 15px; font-weight: 700;"> MICreador <span class="arrow_carrot-down"></span>
+                                    <ul class="dropdown">
+                                        <li><a href="{% url 'main:blogaddinfo' %}">Crear Blogs</a></li>
+                                        <li><a href="{% url 'main:reviewaddinfo' %}">Crear Reviews</a></li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <div class="col-lg-2">
+                    <div class="header__right">
+                        <a href="{% url 'main:logout' %}"><img src="{% static 'img/icon_logout (1).png' %}" alt="">
+                        <a href="{% url 'main:login' %}"><span class="icon_profile"></span></a>
+                    </div>
+                </div>
+            </div>
+            <div id="mobile-menu-wrap"></div>
+        </div>
+    </header>
+    <!-- Fin del encabezado -->
+
+    <!-- Inicio de la sección de imagénes de mangas principales, descripción y sus urls a sus correspondientes apartados de reviews -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero__slider owl-carousel">
+                <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-1.png' %}">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hero__text">
+                                <div class="label">Shōnen</div>
+                                <h2>Jujutsu Kaisen</h2>
+                                <p>Yuuji Itadori, un estudiante de secundaria, que posee una rara habilidad 
+                                    física...</p>
+                                <a href="{%url 'main:review' slug=Reviews.15.slug %}"><span>Ver Review</span> <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-2.jpg' %}">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hero__text">
+                                <div class="label">Shōnen</div>
+                                <h2>Dragon Ball Super</h2>
+                                <p>Desde aquella gran batalla entre Goku y Majin Boo. 
+                                ¡¡Ahora, en un mundo que recuperó la paz, se aproxima una nueva batalla!!...</p>
+                                <a href="{%url 'main:review' slug=Reviews.14.slug %}"><span>Ver Review</span> <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="hero__items set-bg" data-setbg="{% static 'img/hero/hero-3.jpg' %}">
+                    <div class="row">
+                        <div class="col-lg-6">
+                            <div class="hero__text">
+                                <div class="label">Shōnen</div>
+                                <h2>One Piece</h2>
+                                <p>Un niño con sombrero de paja llamado Luffy ha salido al mar buscando 
+                                    convertirse en el nuevo “Rey de los piratas”...
+                                </p>
+                                <a href="{%url 'main:review' slug=Reviews.13.slug %}"><span>Ver Review</span> <i class="fa fa-angle-right"></i></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- Fin de la sección de imágenes, descripción y urls de mangas principales -->
+
+    <!-- Inicio de la sección de Nuevas Reviews y Nuevos Blogs, y el enlace "ver todos" para redirigir al usuario al apartado que desee ver (BLOGS/REVIEWS) -->
+    <section class="product spad">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8">
+                    <div class="trending__product">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <div class="section-titlePD">
+                                    <h4>Ponte al día!</h4>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="popular__product">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <div class="section-title">
+                                    <h4>Nuevas Reviews!!</h4>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <div class="btn__all">
+                                    <a href="{% url 'main:reviews' %}" class="primary-btn">Ver Todas <span class="arrow_right"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/popular/popular-1.jpg' %}">
+                                        <div class="ep">18 / 18</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 6</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Active</li>
+                                            <li>Movie</li>
+                                        </ul>
+                                        <h5><a href="{%url 'main:review' slug=Reviews.0.slug %}">{{Reviews.0.name}}</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/popular/popular-2.jpg' %}">
+                                        <div class="ep">18 / 18</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 6</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Active</li>
+                                            <li>Movie</li>
+                                        </ul>
+                                        <h5><a href="{%url 'main:review' slug=Reviews.1.slug %}">{{Reviews.1.name}}</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/popular/popular-3.jpg' %}">
+                                        <div class="ep">18 / 18</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 6</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Active</li>
+                                            <li>Movie</li>
+                                        </ul>
+                                        <h5><a href="{%url 'main:review' slug=Reviews.2.slug %}">{{Reviews.2.name}}</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/popular/popular-4.jpg' %}">
+                                        <div class="ep">18 / 18</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 6</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Active</li>
+                                            <li>Movie</li>
+                                        </ul>
+                                        <h5><a href="{%url 'main:review' slug=Reviews.3.slug %}">{{Reviews.3.name}}</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/popular/popular-5.jpg' %}">
+                                        <div class="ep">18 / 18</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 6</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Active</li>
+                                            <li>Movie</li>
+                                        </ul>
+                                        <h5><a href="{%url 'main:review' slug=Reviews.4.slug %}">{{Reviews.4.name}}</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/popular/popular-6.jpg' %}">
+                                        <div class="ep">18 / 18</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 6</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Active</li>
+                                            <li>Movie</li>
+                                        </ul>
+                                        <h5><a href="{%url 'main:review' slug=Reviews.5.slug %}">{{Reviews.5.name}}</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="recent__product">
+                        <div class="row">
+                            <div class="col-lg-8 col-md-8 col-sm-8">
+                                <div class="section-title">
+                                    <h4>Nuevos Blogs!!</h4>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-4 col-sm-4">
+                                <div class="btn__all">
+                                    <a href="{% url 'main:blogs' %}" class="primary-btn">Ver Todos <span class="arrow_right"></span></a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/blog/blog-14.jpg' %}">
+                                        <div class="ep">18 / 18</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 6</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Active</li>
+                                            <li>Movie</li>
+                                        </ul>
+                                        <h5><a href="{%url 'main:blog' slug=blogs.0.slug %}">{{blogs.0.name}}</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/blog/blog-13.png' %}">
+                                        <div class="ep">18 / 18</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 6</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Active</li>
+                                            <li>Movie</li>
+                                        </ul>
+                                        <h5><a href="{%url 'main:blog' slug=blogs.1.slug %}">{{blogs.1.name}}</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/blog/blog-16.jpg' %}">
+                                        <div class="ep">18 / 18</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 6</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Active</li>
+                                            <li>Movie</li>
+                                        </ul>
+                                        <h5><a href="{%url 'main:blog' slug=blogs.2.slug %}">{{blogs.2.name}}</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/blog/blog-7.jpg' %}">
+                                        <div class="ep">18 / 18</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 6</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Active</li>
+                                            <li>Movie</li>
+                                        </ul>
+                                        <h5><a href="{%url 'main:blog' slug=blogs.4.slug %}">{{blogs.4.name}}</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-lg-4 col-md-6 col-sm-6">
+                                <div class="product__item">
+                                    <div class="product__item__pic set-bg" data-setbg="{% static 'img/blog/blog-11.jpg' %}">
+                                        <div class="ep">18 / 18</div>
+                                        <div class="comment"><i class="fa fa-comments"></i> 6</div>
+                                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                    </div>
+                                    <div class="product__item__text">
+                                        <ul>
+                                            <li>Active</li>
+                                            <li>Movie</li>
+                                        </ul>
+                                        <h5><a href="{%url 'main:blog' slug=blogs.8.slug %}">{{blogs.8.name}}</a></h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-lg-4 col-md-6 col-sm-8">
+                    <div class="product__sidebar">
+                        <div class="product__sidebar__view">
+                            <div class="section-title">
+                                <h5>Más Vistos</h5>
+                            </div>
+                            <ul class="filter__controls">
+                                <li class="active" data-filter="*">Día</li>
+                                <li data-filter=".week">Semana</li>
+                                <li data-filter=".month">Mes</li>
+                                <li data-filter=".years">Año</li>
+                            </ul>
+                            <div class="filter__gallery">
+                                <div class="product__sidebar__view__item set-bg mix day years"
+                                data-setbg="{% static 'img/blog/blog-14.jpg' %}">
+                                <div class="ep">18 / 18</div>
+                                <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                                <h5><a href="{%url 'main:blog' slug=blogs.0.slug %}">{{blogs.0.name}}</a></h5>
+                            </div>
+                            <div class="product__sidebar__view__item set-bg mix month week"
+                            data-setbg="{% static 'img/popular/popular-6.jpg' %}">
+                            <div class="ep">18 / 18</div>
+                            <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                            <h5><a href="{%url 'main:review' slug=Reviews.5.slug %}">{{Reviews.5.name}}</a></h5>
+                        </div>
+                        <div class="product__sidebar__view__item set-bg mix week years"
+                        data-setbg="{% static 'img/blog/blog-7.jpg' %}">
+                        <div class="ep">18 / 18</div>
+                        <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                        <h5><a href="{%url 'main:blog' slug=blogs.4.slug %}">{{blogs.4.name}}</a></h5>
+                    </div>
+                    <div class="product__sidebar__view__item set-bg mix years month"
+                    data-setbg="{% static 'img/popular/popular-2.jpg' %}">
+                    <div class="ep">18 / 18</div>
+                    <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                    <h5><a href="{%url 'main:review' slug=Reviews.1.slug %}">{{Reviews.1.name}}</a></h5>
+                </div>
+                <div class="product__sidebar__view__item set-bg mix day"
+                data-setbg="{% static 'img/blog/blog-9.jpg' %}">
+                <div class="ep">18 / 18</div>
+                <div class="view"><i class="fa fa-eye"></i> 9141</div>
+                <h5><a href="{%url 'main:blog' slug=blogs.6.slug %}">{{blogs.6.name}}</a></h5>
+            </div>
+        </div>
+    </div>
+    <div class="product__sidebar__comment">
+        <div class="section-title">
+            <h5>Redes Sociales Oficiales</h5>
+        </div>
+        <div class="blog__details__social">
+            <a href="https://www.facebook.com/mangaplus.es/" class="facebook"><i class="fa fa-facebook-square"></i> Facebook</a>
+        <p></p>
+            <a href="https://discord.com/invite/yhneaVX" class="discord"><i class="fa fa-discord-square"></i> Discord</a>
+        <p></p>
+            <a href="https://mangaplus.shueisha.co.jp/updates" class="Shueisha"><i class="fa fa-Shueisha-square"></i> Shueisha</a>
+        </div>
+        </div>
+        </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Fin de la sección de Nuevas Reviews y Nuevos Blogs, y el enlace "ver todos" para redirigir al usuario al apartado que desee ver (BLOGS/REVIEWS) -->
+
+<!-- Inicio de la sección de Pie de Página con todos sus urls que redigiren al usuario a los diferentes apartados-->
+<footer class="footer">
+    <div class="page-up">
+        <a href="#" id="scrollToTopButton"><span class="arrow_carrot-up"></span></a>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-3">
+                <div class="footer__logo">
+                    <a href="{% url 'main:home' %}"><img src="{% static 'img/logoM.png' %}" alt=""></a>
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="footer__nav">
+                    <ul>
+                        <li class="active"><a href="{% url 'main:home' %}">Inicio</a></li>
+                        <li><a href="{% url 'main:reviews' %}">Reviews</a></li>
+                        <li><a href="{% url 'main:blogs' %}">Blog</a></li>
+                        <li><a href="https://mangaplus.shueisha.co.jp/updates">Ver Mangas</a></li>
+                        <li><a href="{% url 'main:blogaddinfo' %}">MICreador</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="col-lg-3" style="text-align: justify;text-justify: inter-word;">
+                <p><!-- Referencia de Derechos de Autor como Decorativo -->
+                  Copyright &copy;<script>document.write(new Date().getFullYear());</script> Todos los Derechos Reservados | Esta página web fue creada con fines educativos con mucho <i class="fa fa-heart" aria-hidden="true"></i> por <a href="https://www.twitch.tv/soyyairr" target="_blank">Yair Sánchez</a>
+                  <!--  Referencia de Derechos de Autor como Decorativo --></p>
+
+              </div>
+          </div>
+      </div>
+  </footer>
+  <!-- Fin de la sección de Pie de Página con todos sus urls que redigiren al usuario a los diferentes apartados-->
+
+<!-- JavaScript Plugins -->
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+<script src="{% static 'js/player.js' %}"></script>
+<script src="{% static 'js/jquery.nice-select.min.js' %}"></script>
+<script src="{% static 'js/mixitup.min.js' %}"></script>
+<script src="{% static 'js/jquery.slicknav.js' %}"></script>
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+<script src="{% static 'js/main.js' %}"></script>
+
+
+</body>
+<!-- Fin del Cuerpo de la Página -->
+
+</html>
